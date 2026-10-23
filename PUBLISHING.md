@@ -4,6 +4,7 @@
 
 - GitHub 仓库名：`Notoonex/dsh-project-board`
 - 仓库地址：<https://github.com/Notoonex/dsh-project-board>
+- npm 包名：`@notoonex/dsh-project-board`
 - 给仓库加 topic：`dsh-plugin`
 - 推送本目录（不要包含 `~/.dsh` 下的运行数据）
 

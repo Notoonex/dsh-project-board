@@ -1,5 +1,5 @@
 {
-  "name": "dsh-project-board",
+  "name": "@notoonex/dsh-project-board",
   "version": "0.1.0",
   "description": "Project record system for DeepSeek Harness: a node-based progress board, a decision ledger, and a right-sidebar UI.",
   "type": "module",

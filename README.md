@@ -34,8 +34,10 @@
 ### 作为 DSH 插件（推荐）
 
 ```bash
-dsh plugin --profile web add github:Notoonex/dsh-project-board
+dsh plugin --profile web add @notoonex/dsh-project-board
 ```
+
+> 从源码安装：`dsh plugin --profile web add github:Notoonex/dsh-project-board`
 
 重启 DSH 后，右侧栏会出现「项目看板」。
 插件会自动把 skill 安装到 `~/.dsh/skills/project-board/`，并托管本地 board server。
@@ -227,8 +229,10 @@ Three constraints:
 As a DSH plugin (recommended):
 
 ```bash
-dsh plugin --profile web add github:Notoonex/dsh-project-board
+dsh plugin --profile web add @notoonex/dsh-project-board
 ```
+
+> Source install: `dsh plugin --profile web add github:Notoonex/dsh-project-board`
 
 Restart DSH; a "Project Board" tab appears in the right sidebar. The plugin installs the bundled skill into `~/.dsh/skills/project-board/` and manages the local board server.
 
