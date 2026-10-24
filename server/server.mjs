@@ -387,7 +387,7 @@ function findTaskLine(lines, payload) {
   return null;
 }
 
-const ALLOWED_ORIGIN = /^https?:\/\/(127\.0\.0\.1|localhost)(:\d+)?$/;
+const ALLOWED_ORIGIN = /^(https?:\/\/(127\.0\.0\.1|localhost)(:\d+)?|dsh-app:\/\/.*)$/;
 
 const server = http.createServer((req, res) => {
   const origin = req.headers.origin;
