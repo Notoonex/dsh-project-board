@@ -69,6 +69,12 @@ try {
   }
   console.log('✔ local origin allowed');
 
+  const dshApp = await fetch(`${base}/api/projects`, { headers: { ...auth, Origin: 'dsh-app://dsh' } });
+  if (dshApp.headers.get('access-control-allow-origin') !== 'dsh-app://dsh') {
+    throw new Error('dsh-app origin not allowed');
+  }
+  console.log('✔ dsh-app origin allowed');
+
   const dec = await fetch(`${base}/api/decisions?project=demo`, { headers: auth });
   if (!dec.ok) throw new Error(`decisions status ${dec.status}`);
   const dd = await dec.json();
