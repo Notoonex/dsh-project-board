@@ -764,11 +764,12 @@ window.__ModuleLoader__.load({
         return ctx.sidebarRightTabs?.register({
           id: TAB_ID,
           kind: TAB_KIND,
-          priority: 'builtin',
+          priority: 'extension',
+          patterns: [],
+          canOpen: () => true,
           title: () => '项目看板',
           guide: [
             {
-              id: 'open',
               order: 45,
               title: () => '项目看板',
               description: () => '查看项目结构、待办、决策台账与进度',
@@ -778,14 +779,14 @@ window.__ModuleLoader__.load({
         });
       }, 'dsh-project-board: sidebar right type');
 
-      ctx.slots.inject('sidebar.right.pane.tab', () => {
+      ctx.effect(() => ctx.slots.inject('sidebar.right.pane.tab', () => {
         const d1 = ctx.slots.register({ name: 'sidebar.right.pane.tab', key: TAB_ID }, NativeBoardTab);
         const d2 = ctx.slots.register({ name: 'sidebar.right.pane.tab', key: TAB_KIND }, NativeBoardTab);
         return () => {
           try { d1(); } catch (e) {}
           try { d2(); } catch (e) {}
         };
-      });
+      }), 'dsh-project-board: sidebar right body');
     }
 
     const exports = {};
