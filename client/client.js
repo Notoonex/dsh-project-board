@@ -760,8 +760,10 @@ window.__ModuleLoader__.load({
 
     // ── plugin lifecycle ─────────────────────────────────────────────────────
     function apply(ctx) {
+      const tabs = ctx.sidebarRightTabs || (typeof ctx.get === 'function' ? ctx.get('sidebarRightTabs') : undefined);
+      const slots = ctx.slots || (typeof ctx.get === 'function' ? ctx.get('slots') : undefined);
       ctx.effect(() => {
-        return ctx.sidebarRightTabs?.register({
+        return tabs?.register({
           id: TAB_ID,
           kind: TAB_KIND,
           priority: 'extension',
@@ -779,9 +781,9 @@ window.__ModuleLoader__.load({
         });
       }, 'dsh-project-board: sidebar right type');
 
-      ctx.effect(() => ctx.slots.inject('sidebar.right.pane.tab', () => {
-        const d1 = ctx.slots.register({ name: 'sidebar.right.pane.tab', key: TAB_ID }, NativeBoardTab);
-        const d2 = ctx.slots.register({ name: 'sidebar.right.pane.tab', key: TAB_KIND }, NativeBoardTab);
+      ctx.effect(() => slots?.inject('sidebar.right.pane.tab', () => {
+        const d1 = slots.register({ name: 'sidebar.right.pane.tab', key: TAB_ID }, NativeBoardTab);
+        const d2 = slots.register({ name: 'sidebar.right.pane.tab', key: TAB_KIND }, NativeBoardTab);
         return () => {
           try { d1(); } catch (e) {}
           try { d2(); } catch (e) {}
